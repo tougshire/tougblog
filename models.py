@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import date
 from django.conf import settings
+from django.template.defaultfilters import slugify
 
 class Image(models.Model):
     title = models.CharField(
@@ -61,7 +62,9 @@ class Post(models.Model):
     )
     author=models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
         help_text="The user who created ths thread"
     )
     created=models.DateTimeField(
@@ -206,3 +209,65 @@ class EventDate(models.Model):
 
     class Meta:
         ordering = ('whenday','event')
+
+class Page(models.Model):
+    title = models.CharField(
+        'Title',
+        max_length=50,
+        help_text="The title of the thread"
+    )
+    title_image = models.ForeignKey(
+        Image,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        help_text='The image to display above the title, and to use for social media graphs'
+    )
+    slug = models.SlugField(
+        help_text="The code that provides a character based ID for this page"
+    )
+    author=models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        help_text="The user who created ths thread"
+    )
+    created=models.DateTimeField(
+        'created',
+        auto_now_add=True,
+        help_text="The date/time this therad was created"
+    )
+    content_format = models.CharField(
+        'content format',
+        max_length=20,
+        choices=(
+            ('markdown', 'markdown'),
+            ('html','html'),
+        ),
+        default='markdown',
+        help_text="The format (or markup method) used for the content"
+    )
+    content = models.TextField(
+        "content",
+        blank=True,
+        help_text="The content of the post"
+    )
+    list_order = models.CharField(
+        max_length=1,
+        blank=True,
+        default='~',
+        help_text="A character to determine the place on the list. Numbers are higher than capital letters, which are higher than small letters"
+    )
+    def __str__(self):
+        return self.title
+    
+    def save(self, *args, **kwargs):    
+        #this line below give to the instance slug field a slug name
+        self.slug = slugify(self.name)
+        #this line below save every fields of the model instance
+        super(Category, self).save(*args, **kwargs) 
+
+    class Meta:
+        ordering = ('list_order', '-created',)
+

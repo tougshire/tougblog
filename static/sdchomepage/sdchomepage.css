@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+
+#head {
+    width:80%;
+    margin: 0 auto;
+    text-align:center;
+}
+#head img {
+    margin:.5em;
+}
+
+#content {
+    width:80%;
+    margin:0 auto;
+}
+
+#post_detail #content {
+    width:60%;
+    margin:0 auto;
+}
+
+#columns {
+    display:flex;
+}
+
+#columns .place:first-child {
+    border-left: 0;
+}
+
+#columns .place {
+    border-left:1px solid black;
+    padding: 0 1em 0 1em;
+}
+
+.place_title {
+    text-align: center;
+}
+
+.place_title h3 {
+    color:white;
+    background-color:#022e5b;
+    font-size:1.6em;
+    border-radius:.1em;
+    font-family: 'Merriweather', serif;
+    margin-top:0;
+}
+
+.place_title h3 a, .place_title h3 a:visited{
+    color:white;
+    text-decoration:none;
+}
+
+.post_title {
+    text-align: center;
+}
+
+#place_first .post_title h3 {
+    color:white;
+    background-color:#022e5b;
+    font-size:1.6em;
+    border-radius:.1em;
+    font-family: 'Merriweather', serif;
+    margin-top:0;
+}
+
+#place_first .post_title a, #place_first .post_title a:visited{
+    color:white;
+    text-decoration:none;
+}
+
+#place_first .post_summary {
+    font-family: 'Open Sans', sans-serif;
+    font-size:1.2em;
+}
+
+.post {
+    border-bottom: 1px solid black;
+    margin-bottom:1ex;
+}
+
+.post_title h3 {
+    color:white;
+    background-color:#022e5b;
+    font-size:1.6em;
+    border-radius:.1em;
+    font-family: 'Merriweather', serif;
+    margin-top:0;
+}
+
+.post_title h3 a, .post_title h3 a:visited{
+    color:white;
+    text-decoration:none;
+}
+
+
+.post_title h4 {
+    color:#022e5b;
+    font-size:1.2em;
+    border-radius:.1em;
+    font-family: 'Merriweather', serif;
+}
+
+.post_title a, .post_title a:visited{
+    color:#022e5b;
+    text-decoration:none;
+}
+.post_image, .post_image img {
+    width:100%;
+    margin-bottom:0;
+    padding-bottom:0;
+}
+
+.post_summary {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.post_content {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.event_title, .event_summary {
+    margin-left:3em;
+}
+
+#footer {
+    background-color:black;
+    color:white;
+    text-align:center;
+}

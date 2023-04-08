@@ -68,10 +68,20 @@ class Post(models.Model):
         blank=True,
         help_text="The user who created ths thread"
     )
+    show_author_flag = models.BooleanField(
+        'show_author',
+        default=True,
+        help_text="Flag indicating if the author should be shown.  This is just a flag - the template has to be coded appropriately for this to work"
+    )
     created=models.DateTimeField(
         'created',
         auto_now_add=True,
         help_text="The date/time this therad was created"
+    )
+    show_created_flag = models.BooleanField(
+        'show_created',
+        default=True,
+        help_text="Flag indicating if the creation date should be shown.  This is just a flag - the template has to be coded appropriately for this to work"
     )
     placement=models.ForeignKey(
         Placement,

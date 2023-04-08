@@ -24,13 +24,14 @@ class HomePage(TemplateView):
 
         placements = Placement.objects.all()
         context_data['places'] = []
-        for placement in placements:
-            place = {}
-            place['title'] = placement.title
-            place['count'] = placement.post_set.count()
-            place['posts'] = []
+        for place in placements:
+            # place = {}
+            # place['title'] = placement.title
+            place.count = place.post_set.count()
+            # place['posts'] = []
 
-            for post in placement.post_set.all():
+            place.posts = place.post_set.all()
+            for post in place.posts:
                 if post.summary == '':
                     post.summary = post.content
                 if post.summary == '__none__':
@@ -39,7 +40,7 @@ class HomePage(TemplateView):
                     post.content = md.markdown(post.content, extensions=['markdown.extensions.fenced_code'])
                 if post.summary_format == 'markdown' or ( post.summary_format == 'same' and post.content_format == 'markdown' ):
                     post.summary = md.markdown(post.summary, extensions=['markdown.extensions.fenced_code'])
-                place['posts'].append(post)
+                
             context_data['places'].append(place)
         event_dates = EventDate.objects.filter(whenday__gt=date.today())[:10]
         for event_date in event_dates:

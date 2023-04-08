@@ -14,6 +14,16 @@
                                 </div>
                             {% endif %}
                             <div class="post_title"><h3><a href="{% url 'sdchomepage:post' post.pk %}">{{ post.title }}</a></h3></div>
+                            {% if p.show_author or p.show_created %}
+                                <div class="post_meta">
+                                    {% if p.show_author %}
+                                        <div class="author">{{ post.author|default_if_none:'&nbsp;' }}</div>
+                                    {% endif %}
+                                    {% if p.show_created %} 
+                                        <div class="created">{{ post.created|default_if_none:'&nbsp;' }}</div> 
+                                    {% endif %}
+                                </div>
+                            {% endif %}
                             <div class="post_summary">
                                 {{ post.summary | safe }}
                             </div>
@@ -26,6 +36,17 @@
                         <div class="place_title"><h3>{{ p.title }}</h3></div>
                             {% for post in p.posts %}
                                 <div class="post_title"><h4><a href="{% url 'sdchomepage:post' post.pk %}">{{ post.title }}</a></h4></div>
+                                {% if p.show_author or p.show_created %}
+                                    <div class="post_meta">
+                                        {% if p.show_author %}
+                                            {{ post.author|default_if_none:'&nbsp;' }}
+                                        {% endif %}
+                                        {% if p.show_author and p.show_created %} - {% endif %}
+                                        {% if p.show_created %} 
+                                            {{ post.created|date:'M d Y'|default_if_none:'&nbsp;' }} 
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
                                 <div class="post_summary">
                                     {{ post.summary | safe }}
                                 </div>

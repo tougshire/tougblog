@@ -45,13 +45,12 @@ class Placement(models.Model):
     show_author = models.BooleanField(
         'show author',
         default=True,
-        help_text="Flag indicating if the author should be shown.  This is just a flag - the template has to be coded appropriately for this to work"
+        help_text="If the author should be shown in the list of posts. This is just a flag - the template has to be coded appropriately for this to work"
     )
-
     show_created = models.BooleanField(
         'show created',
         default=True,
-        help_text="Flag indicating if the creation date should be shown.  This is just a flag - the template has to be coded appropriately for this to work"
+        help_text="If the creation date should be shown in the list of posts. This is just a flag - the template has to be coded appropriately for this to work"
     )
 
     def __str__(self):
@@ -84,6 +83,16 @@ class Post(models.Model):
         'created',
         auto_now_add=True,
         help_text="The date/time this therad was created"
+    )
+    show_author = models.BooleanField(
+        'show author',
+        default=True,
+        help_text="If the author should be shown in the detail view. This is just a flag - the template has to be coded appropriately for this to work"
+    )
+    show_created = models.BooleanField(
+        'show created',
+        default=True,
+        help_text="If the creation date should be shown in the detail view. This is just a flag - the template has to be coded appropriately for this to work"
     )
     placement=models.ForeignKey(
         Placement,
@@ -134,7 +143,6 @@ class Post(models.Model):
     
     class Meta:
         ordering = ('list_order', '-created',)
-
     
 class Event(models.Model):
     title = models.CharField(

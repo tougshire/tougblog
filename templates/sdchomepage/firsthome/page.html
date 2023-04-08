@@ -1,11 +1,13 @@
 {% extends './_base.html' %}
 {% block content %}
-<div id="post_detail">
+<div id="page_detail">
     <div id="content">
-            <div class="place_title"><h3>{{ post.title }}</h3></div>
-            <div class="post_content">
-                {{ post.content | safe }} 
-            </div>
+        <div class="page_title">
+            <h3>{{ page.title }}</h3>
+        </div>
+        <div class="page_content">
+            {{ page.content | safe }} 
+        </div>
     </div>
 </div>
 

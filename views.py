@@ -68,7 +68,7 @@ class HomePage(TemplateView):
 class PostDetail(DetailView):
     model=Post
     template_name = 'sdchomepage/{}/post.html'.format(settings.SDCHOMEPAGE_TEMPLATE_DIR)
-    context_objecte_name = 'post'
+    context_object_name = 'post'
 
     def get_context_data(self, **kwargs):
 
@@ -91,7 +91,7 @@ class PostDetail(DetailView):
 class EventDetail(DetailView):
     model=Event
     template_name = 'sdchomepage/{}/event.html'.format(settings.SDCHOMEPAGE_TEMPLATE_DIR)
-    context_objecte_name = 'event'
+    context_object_name = 'event'
 
     def get_context_data(self, **kwargs):
 
@@ -120,7 +120,7 @@ class EventDetail(DetailView):
 class PageDetail(DetailView):
     model=Page
     template_name = 'sdchomepage/{}/page.html'.format(settings.SDCHOMEPAGE_TEMPLATE_DIR)
-    context_objecte_name = 'page'
+    context_object_name = 'page'
 
     def get_context_data(self, **kwargs):
 

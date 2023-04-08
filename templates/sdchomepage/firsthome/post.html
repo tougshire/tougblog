@@ -2,10 +2,23 @@
 {% block content %}
 <div id="post_detail">
     <div id="content">
-            <div class="place_title"><h3>{{ post.title }}</h3></div>
-            <div class="post_content">
-                {{ post.content | safe }} 
+        <div class="post_title">
+            <h3>{{ post.title }}</h3>
+        </div>
+        {% if post.show_author or post.show_created %}
+            <div class="post_meta">
+                {% if post.show_author %}
+                    {{ post.author|default_if_none:'&nbsp;' }}
+                {% endif %}
+                {% if post.show_author and post.show_created %} - {% endif %}
+                {% if post.show_created %} 
+                    {{ post.created|default_if_none:'&nbsp;' }} 
+                {% endif %}
             </div>
+        {% endif %}
+        <div class="post_content">
+            {{ post.content | safe }} 
+        </div>
     </div>
 </div>
 

@@ -225,6 +225,7 @@ class Page(models.Model):
         help_text='The image to display above the title, and to use for social media graphs'
     )
     slug = models.SlugField(
+        unique=True,
         help_text="The code that provides a character based ID for this page"
     )
     author=models.ForeignKey(
@@ -267,10 +268,8 @@ class Page(models.Model):
         return reverse("page_detail", kwargs={"slug": self.slug}) 
     
     def save(self, *args, **kwargs):    
-        #this line below give to the instance slug field a slug name
         self.slug = slugify(self.name)
-        #this line below save every fields of the model instance
-        super(Category, self).save(*args, **kwargs) 
+        super().save(*args, **kwargs) 
 
     class Meta:
         ordering = ('list_order', '-created',)

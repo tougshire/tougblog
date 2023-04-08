@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from sdchomepage.models import Event, EventDate, Image, Placement, Post
+from sdchomepage.models import Event, EventDate, Image, Page, Placement, Post
 
 class PlacementAdmin(admin.ModelAdmin):
     list_display = ('title', 'list_order')
@@ -11,6 +11,11 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'placement', 'list_order')
 
 admin.site.register(Post, PostAdmin)
+
+class PageAdmin(admin.ModelAdmin):
+    prepopulated_fields={'slug': ["title"]}
+
+admin.site.register(Page, PageAdmin)
 
 class EventDateInline(admin.StackedInline):
     model=EventDate

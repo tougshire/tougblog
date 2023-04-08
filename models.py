@@ -2,6 +2,7 @@ from django.db import models
 from datetime import date
 from django.conf import settings
 from django.template.defaultfilters import slugify
+from django.urls import reverse
 
 class Image(models.Model):
     title = models.CharField(
@@ -261,6 +262,9 @@ class Page(models.Model):
     )
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self): 
+        return reverse("page_detail", kwargs={"slug": self.slug}) 
     
     def save(self, *args, **kwargs):    
         #this line below give to the instance slug field a slug name

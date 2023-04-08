@@ -11,7 +11,7 @@ from datetime import datetime, date
 
 import markdown as md
 
-from sdchomepage.models import Event, EventDate, Placement, Post
+from sdchomepage.models import Event, EventDate, Page, Placement, Post
 
 class HomePage(TemplateView):
     template_name = 'sdchomepage/{}/sdchomepage.html'.format(settings.SDCHOMEPAGE_TEMPLATE_DIR)
@@ -111,6 +111,23 @@ class EventDetail(DetailView):
         if event.summary_format == 'markdown' or ( event.summary_format == 'same' and event.content_format == 'markdown' ):
             event.summary = md.markdown(event.summary, extensions=['markdown.extensions.fenced_code'])
         context_data['event'] = event
+
+        context_data['footer'] = settings.SDCHOMEPAGE_FOOTER_CONTENT
+
+        return context_data
+
+class PageDetail(DetailView):
+    model=Page
+    template_name = 'sdchomepage/{}/page.html'.format(settings.SDCHOMEPAGE_TEMPLATE_DIR)
+    context_objecte_name = 'page'
+
+    def get_context_data(self, **kwargs):
+
+        context_data = super().get_context_data(**kwargs)
+        page = self.get_object()
+        if page.content_format == 'markdown':
+            page.content = md.markdown(page.content, extensions=['markdown.extensions.fenced_code'])
+        context_data['page'] = page
 
         context_data['footer'] = settings.SDCHOMEPAGE_FOOTER_CONTENT
 

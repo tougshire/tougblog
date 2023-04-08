@@ -280,7 +280,7 @@ class Page(models.Model):
         return reverse("page_detail", kwargs={"slug": self.slug}) 
     
     def save(self, *args, **kwargs):    
-        self.slug = slugify(self.name)
+        self.slug = slugify(self.title)
         super().save(*args, **kwargs) 
 
     class Meta:

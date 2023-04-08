@@ -9,7 +9,16 @@
 #head img {
     margin:.5em;
 }
-
+#menubar {
+    width:100%;
+    text-align: center;
+    display:flex;
+    justify-content: space-evenly;
+}
+#menubar a {
+    color:#022e5b;
+    text-decoration: none;
+}
 #content {
     width:80%;
     margin:0 auto;

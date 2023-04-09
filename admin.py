@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from sdchomepage.models import Event, EventDate, Image, Page, Placement, Post
+from tougblog.models import Event, EventDate, Image, Page, Placement, Post
 
 class PlacementAdmin(admin.ModelAdmin):
     list_display = ('title', 'list_order')

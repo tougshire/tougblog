@@ -144,6 +144,36 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+.page_title h3 {
+    color:white;
+    background-color:#022e5b;
+    font-size:1.6em;
+    border-radius:.1em;
+    font-family: 'Merriweather', serif;
+    margin-top:0;
+}
+
+.page_title h3 a, .page_title h3 a:visited{
+    color:white;
+    text-decoration:none;
+}
+
+
+.page_title h4 {
+    color:#022e5b;
+    font-size:1.2em;
+    border-radius:.1em;
+    font-family: 'Merriweather', serif;
+    margin-bottom:0;
+}
+
+.page_title a, .page_title a:visited{
+    color:#022e5b;
+    text-decoration:none;
+}
+
+
+
 .event_title, .event_summary {
     margin-left:3em;
 }

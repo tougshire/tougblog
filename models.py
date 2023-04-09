@@ -7,7 +7,7 @@ from django.urls import reverse
 class Image(models.Model):
     title = models.CharField(
         'Title',
-        max_length=50,
+        max_length=100,
         help_text="The title of the thread"
     )
     author=models.ForeignKey(
@@ -32,7 +32,7 @@ class Image(models.Model):
 class Placement(models.Model):
     title=models.CharField(
         'title',
-        max_length=20,
+        max_length=100,
         blank=True,
         help_text='The title to be displayed for this placement'
     )
@@ -62,7 +62,7 @@ class Placement(models.Model):
 class Post(models.Model):
     title = models.CharField(
         'Title',
-        max_length=50,
+        max_length=100,
         help_text="The title of the thread"
     )
     title_image = models.ForeignKey(
@@ -147,7 +147,7 @@ class Post(models.Model):
 class Event(models.Model):
     title = models.CharField(
         'title',
-        max_length=50,
+        max_length=100,
         help_text="The title of the thread"
     )
     title_image = models.ForeignKey(
@@ -234,7 +234,7 @@ class EventDate(models.Model):
 class Page(models.Model):
     title = models.CharField(
         'Title',
-        max_length=50,
+        max_length=100,
         help_text="The title of the thread"
     )
     title_image = models.ForeignKey(

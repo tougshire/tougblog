@@ -11,10 +11,10 @@ from datetime import datetime, date
 
 import markdown as md
 
-from sdchomepage.models import Event, EventDate, Page, Placement, Post
+from tougblog.models import Event, EventDate, Page, Placement, Post
 
 class HomePage(TemplateView):
-    template_name = 'sdchomepage/{}/sdchomepage.html'.format(settings.SDCHOMEPAGE_TEMPLATE_DIR)
+    template_name = 'tougblog/{}/tougblog.html'.format(settings.TOUGBLOG_TEMPLATE_DIR)
 
     def get_context_data(self, **kwargs):
 
@@ -61,13 +61,13 @@ class HomePage(TemplateView):
                 event.summary = md.markdown(event.summary, extensions=['markdown.extensions.fenced_code'])
         context_data['event_dates'] = event_dates
 
-        context_data['footer'] = settings.SDCHOMEPAGE_FOOTER_CONTENT
+        context_data['footer'] = settings.TOUGBLOG_FOOTER_CONTENT
 
         return context_data
     
 class PostDetail(DetailView):
     model=Post
-    template_name = 'sdchomepage/{}/post.html'.format(settings.SDCHOMEPAGE_TEMPLATE_DIR)
+    template_name = 'tougblog/{}/post.html'.format(settings.TOUGBLOG_TEMPLATE_DIR)
     context_object_name = 'post'
 
     def get_context_data(self, **kwargs):
@@ -84,13 +84,13 @@ class PostDetail(DetailView):
             post.summary = md.markdown(post.summary, extensions=['markdown.extensions.fenced_code'])
         context_data['post'] = post
 
-        context_data['footer'] = settings.SDCHOMEPAGE_FOOTER_CONTENT
+        context_data['footer'] = settings.TOUGBLOG_FOOTER_CONTENT
 
         return context_data
 
 class EventDetail(DetailView):
     model=Event
-    template_name = 'sdchomepage/{}/event.html'.format(settings.SDCHOMEPAGE_TEMPLATE_DIR)
+    template_name = 'tougblog/{}/event.html'.format(settings.TOUGBLOG_TEMPLATE_DIR)
     context_object_name = 'event'
 
     def get_context_data(self, **kwargs):
@@ -113,13 +113,13 @@ class EventDetail(DetailView):
             event.summary = md.markdown(event.summary, extensions=['markdown.extensions.fenced_code'])
         context_data['event'] = event
 
-        context_data['footer'] = settings.SDCHOMEPAGE_FOOTER_CONTENT
+        context_data['footer'] = settings.TOUGBLOG_FOOTER_CONTENT
 
         return context_data
 
 class PageDetail(DetailView):
     model=Page
-    template_name = 'sdchomepage/{}/page.html'.format(settings.SDCHOMEPAGE_TEMPLATE_DIR)
+    template_name = 'tougblog/{}/page.html'.format(settings.TOUGBLOG_TEMPLATE_DIR)
     context_object_name = 'page'
 
     def get_context_data(self, **kwargs):
@@ -130,6 +130,6 @@ class PageDetail(DetailView):
             page.content = md.markdown(page.content, extensions=['markdown.extensions.fenced_code'])
         context_data['page'] = page
 
-        context_data['footer'] = settings.SDCHOMEPAGE_FOOTER_CONTENT
+        context_data['footer'] = settings.TOUGBLOG_FOOTER_CONTENT
 
         return context_data

@@ -17,6 +17,7 @@
     justify-content: space-evenly;
     border-top:2px solid black;
     border-bottom:2px solid black;
+    margin-bottom:1ex;
     padding: .5ex .5ex;
 
 }

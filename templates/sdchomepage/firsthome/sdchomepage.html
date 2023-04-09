@@ -74,18 +74,5 @@
             </div>
         </div>
     </div>
-    <_script>
-        columns=document.querySelectorAll('#columns>.place')
-        if ( columns.length == 1 ) {
-            columns[0].style.width = "100%"
-        } 
-        else {
-            unit_width = 100 / ( columns.length + 1 )
-            for(column of columns ) {
-                column.style.width = unit_width + "%"
-            }
-            columns[0].style.width = unit_width * 2 + "%"
-        }
-    </_script>
 
 {% endblock %}

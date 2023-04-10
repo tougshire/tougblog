@@ -42,6 +42,9 @@ class Placement(models.Model):
         default='~',
         help_text="A character to determine the place on the list. Numbers are higher than capital letters, which are higher than small letters"
     )
+    place_number = models.IntegerField(
+        help_text="A number to help determine where posts of this placement appear the template."
+    )
     show_author = models.BooleanField(
         'show author',
         default=True,
@@ -57,7 +60,7 @@ class Placement(models.Model):
         return self.title
         
     class Meta:
-        ordering = ('list_order', 'title',)
+        ordering = ('place_number',)
     
 class Post(models.Model):
     title = models.CharField(

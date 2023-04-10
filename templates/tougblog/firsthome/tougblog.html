@@ -1,0 +1,78 @@
+{% extends './_base.html' %}
+
+{% block content %}
+    <div id="tougblog" class="list">
+        <div id="columns">
+            {% for p in places %}
+                {% if forloop.first %}
+                    <div id="column_first" class="column">
+                        {% for post in p.posts %}
+                            <div class="post">
+                                {% if post.title_image %}
+                                    <div class="titleimage">
+                                        <a href="{% url 'tougblog:post' post.pk %}"><img src="{{ post.title_image.file.url }}"></a>
+                                    </div>
+                                {% endif %}
+                                <div class="title post_title">
+                                    <h2><a href="{% url 'tougblog:post' post.pk %}">{{ post.title }}</a></h2>
+                                </div>
+                                {% if p.show_author or p.show_created %}
+                                    <div class="post_meta">
+                                        {% if p.show_author %}
+                                            {{ post.author|default_if_none:'&nbsp;' }}
+                                        {% endif %}
+                                        {% if p.show_author and p.show_created %} - {% endif %}
+                                        {% if p.show_created %} 
+                                            {{ post.created|default_if_none:'&nbsp;' }} 
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                <div class="summary post_summary">
+                                    {{ post.summary | safe }}
+                                </div>
+                            </div>
+                        {% endfor %}        
+                    </div>
+                {% else %}
+                    {% if p.count  %}
+                        <div id="columns_{ forloop.counter0}" class="column">
+                            <div class="title columns_title">
+                                <h2>{{ p.title }}</h2>
+                            </div>
+                            {% for post in p.posts %}
+                                <div class="title post_title">
+                                    <h3><a href="{% url 'tougblog:post' post.pk %}">{{ post.title }}</a></h3>
+                                </div>
+                                {% if p.show_author or p.show_created %}
+                                    <div class="meta post_meta">
+                                        {% if p.show_author %}
+                                            {{ post.author|default_if_none:'&nbsp;' }}
+                                        {% endif %}
+                                        {% if p.show_author and p.show_created %} - {% endif %}
+                                        {% if p.show_created %} 
+                                            {{ post.created|date:'M d Y'|default_if_none:'&nbsp;' }} 
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                <div class="summary post_summary">
+                                    {{ post.summary | safe }}
+                                </div>
+                            {% endfor %}
+                        </div>        
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            <div id="columns_{ forloop.counter0}" class="column">
+                <div class="title columns_title">
+                    <h2>Events</h2>
+                </div>
+                {% for event_date in event_dates %}
+                    <div class="title event_date"><h3>{{ event_date.whenday|date:'D d M Y' }}</h3></div>
+                    <div class="event_title"><h4>{{ event_date.event.starttime|default_if_none:'' }} <a href="{% url 'tougblog:event' event_date.event.pk %}">{{ event_date.event.title }}</a></h4></div>
+                    <div class="event_summary">{{ event_date.event.summary | safe }}</div>
+                {% endfor %}            
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

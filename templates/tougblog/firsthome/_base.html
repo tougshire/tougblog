@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Suffolk Democratic Committe, Virginia</title>
+        <link rel="stylesheet" href="{% static 'tougblog/tougblog.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          
+    </head>
+    <body>
+        <div id="head">
+            <a href="{% url 'tougblog:homepage' %}"><img src="{% static 'tougblog/tougblog.png' %}"></a>
+        </div>
+        <div id="menubar">
+            <a href="{% url 'tougblog:homepage'  %}">Home</a> 
+            <a href="{% url 'tougblog:page' 'executive-committee' %}">Executive Committee</a> 
+            <a href="{% url 'tougblog:page' 'join-us' %}">Join Us</a> 
+            <a href="{% url 'tougblog:page' 'contact-us' %}">Contact Us</a> 
+        </div>
+        <div id="mainstage">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div id="footer">
+            {{ footer }}
+        </div>
+    </body>
+</html>

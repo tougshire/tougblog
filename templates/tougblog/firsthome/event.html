@@ -1,0 +1,14 @@
+{% extends './_base.html' %}
+{% block content %}
+<div id="event_detail" class="detail">
+    <div class="title event_title">
+        <h3>
+            {{ event.title }}
+        </h3>
+    </div>
+    <div class="content event_content">
+        {{ event.content | safe }} 
+    </div>
+</div>
+
+{% endblock %}

@@ -146,6 +146,8 @@
     .detail .content {
         width:90%;
         margin:0 auto;
+        font-family: open sans,sans-serif;
+        
     }
 
     .detail .meta {
@@ -323,7 +325,10 @@
     .detail .content {
         width:90%;
         margin:0 auto;
+        font-family: open sans,sans-serif;        
+        
     }
+
 
     .detail .meta {
         width:95%;

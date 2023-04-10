@@ -3,7 +3,7 @@ from django.contrib import admin
 from tougblog.models import Event, EventDate, Image, Page, Placement, Post
 
 class PlacementAdmin(admin.ModelAdmin):
-    list_display = ('title', 'list_order')
+    list_display = ('title', 'place_number')
 
 admin.site.register(Placement, PlacementAdmin)
 

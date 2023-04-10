@@ -36,12 +36,6 @@ class Placement(models.Model):
         blank=True,
         help_text='The title to be displayed for this placement'
     )
-    list_order = models.CharField(
-        max_length=1,
-        blank=True,
-        default='~',
-        help_text="A character to determine the place on the list. Numbers are higher than capital letters, which are higher than small letters"
-    )
     place_number = models.IntegerField(
         help_text="A number to help determine where posts of this placement appear the template."
     )

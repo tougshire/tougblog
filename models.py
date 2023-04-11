@@ -57,6 +57,7 @@ class Placement(models.Model):
         ordering = ('place_number',)
     
 class Post(models.Model):
+
     title = models.CharField(
         'Title',
         max_length=100,
@@ -135,6 +136,15 @@ class Post(models.Model):
         default='~',
         help_text="A character to determine the place on the list. Numbers are higher than capital letters, which are higher than small letters"
     )
+    draft_status = models.IntegerField(
+        "draft status",
+        choices = [
+            ('published', 7),
+            ('draft', 0),
+        ],
+        default=0,
+        help_text="If this post is a draft, which only displays in preview mode"
+    )
     def __str__(self):
         return self.title
     
@@ -203,6 +213,15 @@ class Event(models.Model):
         null=True,
         blank=True,
         help_text = 'The post to use as the content and summary.  If selected, the post content and summary will be used instead of the event\'s content and summary'
+    )
+    draft_status = models.IntegerField(
+        "draft status",
+        choices = [
+            ('published', 7),
+            ('draft', 0),
+        ],
+        default=0,
+        help_text="If this post is a draft, which only displays in preview mode"
     )
 
     def __str__(self):
@@ -278,6 +297,17 @@ class Page(models.Model):
         default='~',
         help_text="A character to determine the place on the list. Numbers are higher than capital letters, which are higher than small letters"
     )
+
+    draft_status = models.IntegerField(
+        "draft status",
+        choices = [
+            ('published', 7),
+            ('draft', 0),
+        ],
+        default=0,
+        help_text="If this post is a draft, which only displays in preview mode"
+    )
+
     def __str__(self):
         return self.title
     

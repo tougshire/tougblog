@@ -57,7 +57,8 @@ class Placement(models.Model):
         ordering = ('place_number',)
     
 class Post(models.Model):
-
+    DRAFT_STATUS_PUBLISHED = 7
+    DRAFT_STATUS_DRAFT = 0
     title = models.CharField(
         'Title',
         max_length=100,
@@ -139,12 +140,22 @@ class Post(models.Model):
     draft_status = models.IntegerField(
         "draft status",
         choices = [
-            ('published', 7),
-            ('draft', 0),
+            (DRAFT_STATUS_PUBLISHED, 'published'),
+            (DRAFT_STATUS_DRAFT, 'draft'),
         ],
         default=0,
         help_text="If this post is a draft, which only displays in preview mode"
     )
+    draft_status = models.IntegerField(
+        "draft status",
+        choices = [
+            (DRAFT_STATUS_PUBLISHED, 'published'),
+            (DRAFT_STATUS_DRAFT, 'draft'),
+        ],
+        default=0,
+        help_text="If this post is a draft, which only displays in preview mode"
+    )
+
     def __str__(self):
         return self.title
     
@@ -152,6 +163,9 @@ class Post(models.Model):
         ordering = ('list_order', '-created',)
     
 class Event(models.Model):
+    DRAFT_STATUS_PUBLISHED = 7
+    DRAFT_STATUS_DRAFT = 0
+
     title = models.CharField(
         'title',
         max_length=100,
@@ -217,8 +231,8 @@ class Event(models.Model):
     draft_status = models.IntegerField(
         "draft status",
         choices = [
-            ('published', 7),
-            ('draft', 0),
+            (DRAFT_STATUS_PUBLISHED, 'published'),
+            (DRAFT_STATUS_DRAFT, 'draft'),
         ],
         default=0,
         help_text="If this post is a draft, which only displays in preview mode"
@@ -248,6 +262,8 @@ class EventDate(models.Model):
         ordering = ('whenday','event')
 
 class Page(models.Model):
+    DRAFT_STATUS_PUBLISHED = 7
+    DRAFT_STATUS_DRAFT = 0
     title = models.CharField(
         'Title',
         max_length=100,
@@ -297,15 +313,14 @@ class Page(models.Model):
         default='~',
         help_text="A character to determine the place on the list. Numbers are higher than capital letters, which are higher than small letters"
     )
-
     draft_status = models.IntegerField(
         "draft status",
         choices = [
-            ('published', 7),
-            ('draft', 0),
+            ('published', DRAFT_STATUS_PUBLISHED),
+            ('draft', DRAFT_STATUS_DRAFT),
         ],
         default=0,
-        help_text="If this post is a draft, which only displays in preview mode"
+        help_text="If this page is a draft, which only displays in preview mode"
     )
 
     def __str__(self):

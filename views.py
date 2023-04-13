@@ -19,7 +19,7 @@ class HomePage(TemplateView):
 
     def get_context_data(self, **kwargs):
 
-        do_preview = self.request.GET.get('preview').lower() == "true"[:len(self.request.GET.get('preview'))].lower() if 'preview' in self.request.GET else False
+        do_preview = self.request.user.is_staff == True and self.request.GET.get('preview').lower() == "true"[:len(self.request.GET.get('preview'))].lower() if 'preview' in self.request.GET else False
 
         context_data = super().get_context_data(**kwargs)
 

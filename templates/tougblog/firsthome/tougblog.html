@@ -40,6 +40,11 @@
                                 <h2>{{ p.title }}</h2>
                             </div>
                             {% for post in p.posts %}
+                                {% if post.title_image %}
+                                    <div class="titleimage">
+                                        <a href="{% url 'tougblog:post' post.pk %}"><img src="{{ post.title_image.file.url }}"></a>
+                                    </div>
+                                {% endif %}
                                 <div class="title post_title">
                                     <h3><a href="{% url 'tougblog:post' post.pk %}">{{ post.title }}</a></h3>
                                 </div>

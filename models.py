@@ -58,6 +58,7 @@ class Placement(models.Model):
     
 class Post(models.Model):
     DRAFT_STATUS_PUBLISHED = 7
+    DRAFT_STATUS_ARCHIVED = 3
     DRAFT_STATUS_DRAFT = 0
     title = models.CharField(
         'Title',
@@ -141,15 +142,7 @@ class Post(models.Model):
         "draft status",
         choices = [
             (DRAFT_STATUS_PUBLISHED, 'published'),
-            (DRAFT_STATUS_DRAFT, 'draft'),
-        ],
-        default=0,
-        help_text="If this post is a draft, which only displays in preview mode"
-    )
-    draft_status = models.IntegerField(
-        "draft status",
-        choices = [
-            (DRAFT_STATUS_PUBLISHED, 'published'),
+            (DRAFT_STATUS_ARCHIVED, 'archived'),
             (DRAFT_STATUS_DRAFT, 'draft'),
         ],
         default=0,
@@ -164,6 +157,7 @@ class Post(models.Model):
     
 class Event(models.Model):
     DRAFT_STATUS_PUBLISHED = 7
+    DRAFT_STATUS_ARCHIVED = 3
     DRAFT_STATUS_DRAFT = 0
 
     title = models.CharField(
@@ -232,6 +226,7 @@ class Event(models.Model):
         "draft status",
         choices = [
             (DRAFT_STATUS_PUBLISHED, 'published'),
+            (DRAFT_STATUS_ARCHIVED, 'archived'),
             (DRAFT_STATUS_DRAFT, 'draft'),
         ],
         default=0,
@@ -263,6 +258,7 @@ class EventDate(models.Model):
 
 class Page(models.Model):
     DRAFT_STATUS_PUBLISHED = 7
+    DRAFT_STATUS_ARCHIVED = 3
     DRAFT_STATUS_DRAFT = 0
     title = models.CharField(
         'Title',
@@ -316,8 +312,9 @@ class Page(models.Model):
     draft_status = models.IntegerField(
         "draft status",
         choices = [
-            ('published', DRAFT_STATUS_PUBLISHED),
-            ('draft', DRAFT_STATUS_DRAFT),
+            (DRAFT_STATUS_PUBLISHED, 'published'),
+            (DRAFT_STATUS_ARCHIVED, 'archived'),
+            (DRAFT_STATUS_DRAFT, 'draft'),
         ],
         default=0,
         help_text="If this page is a draft, which only displays in preview mode"

@@ -24,22 +24,23 @@ class HomePage(TemplateView):
         context_data = super().get_context_data(**kwargs)
 
         if do_preview:
-            placements = Placement.objects.all()
+            placements = Placement.objects.annotate(published_qty=Count("post", filter=( Q(post__draft_status=Post.DRAFT_STATUS_PUBLISHED) | Q(post__draft_status=Post.DRAFT_STATUS_DRAFT ) ) )).filter(published_qty__gte=1)
         else:
-            placements = Placement.objects.annotate(published_qty=Count("post", filter=Q(post__draft_status=Post.DRAFT_STATUS_PUBLISHED))).filter(published_qty__gte=1)
+            placements = Placement.objects.annotate(published_qty=Count("post", filter=(Q(post__draft_status=Post.DRAFT_STATUS_PUBLISHED)))).filter(published_qty__gte=1)
 
         context_data['places'] = []
         for place in placements:
 
 
             if do_preview:
-                place.count = place.post_set.count()
-                place.posts = place.post_set.all()
+                place.count = place.post_set.filter(Q(draft_status=Post.DRAFT_STATUS_PUBLISHED) | Q(draft_status=Post.DRAFT_STATUS_DRAFT)).count()
+                place.posts = place.post_set.all().filter(Q(draft_status=Post.DRAFT_STATUS_PUBLISHED) )
             else:
                 place.count = place.post_set.filter(draft_status=Post.DRAFT_STATUS_PUBLISHED).count()
-                place.posts = place.post_set.filter(draft_status=Post.DRAFT_STATUS_PUBLISHED)
+                place.posts = place.post_set.all().filter(draft_status=Post.DRAFT_STATUS_PUBLISHED)
 
             for post in place.posts:
+                
                 if post.summary == '':
                     post.summary = post.content
                 if post.summary == '__none__':
@@ -52,7 +53,7 @@ class HomePage(TemplateView):
             context_data['places'].append(place)
 
         if do_preview:
-            event_dates = EventDate.objects.filter(whenday__gte=date.today())
+            event_dates = EventDate.objects.filter(whenday__gte=date.today()).filter(Q(event__draft_status=Event.DRAFT_STATUS_PUBLISHED) | Q(event__draft_status=Event.DRAFT_STATUS_DRAFT) )
         else:
             event_dates = EventDate.objects.filter(whenday__gte=date.today()).filter(event__draft_status=Event.DRAFT_STATUS_PUBLISHED)
 

@@ -1,4 +1,4 @@
-from django.db.models import Count
+from django.db.models import Count, Q
 from django.shortcuts import render
 from django.conf import settings
 from django.views.generic.base import TemplateView
@@ -14,23 +14,31 @@ import markdown as md
 from tougblog.models import Event, EventDate, Page, Placement, Post
 
 class HomePage(TemplateView):
+
     template_name = 'tougblog/{}/tougblog.html'.format(settings.TOUGBLOG['TEMPLATE_DIR'])
 
     def get_context_data(self, **kwargs):
 
+        do_preview = self.request.GET.get('preview').lower() == "true"[:len(self.request.GET.get('preview'))].lower() if 'preview' in self.request.GET else False
+
         context_data = super().get_context_data(**kwargs)
 
-        context_data['placement_count'] = Placement.objects.count()
+        if do_preview:
+            placements = Placement.objects.all()
+        else:
+            placements = Placement.objects.annotate(published_qty=Count("post", filter=Q(post__draft_status=Post.DRAFT_STATUS_PUBLISHED))).filter(published_qty__gte=1)
 
-        placements = Placement.objects.all()
         context_data['places'] = []
         for place in placements:
-            # place = {}
-            # place['title'] = placement.title
-            place.count = place.post_set.count()
-            # place['posts'] = []
 
-            place.posts = place.post_set.all()
+
+            if do_preview:
+                place.count = place.post_set.count()
+                place.posts = place.post_set.all()
+            else:
+                place.count = place.post_set.filter(draft_status=Post.DRAFT_STATUS_PUBLISHED).count()
+                place.posts = place.post_set.filter(draft_status=Post.DRAFT_STATUS_PUBLISHED)
+
             for post in place.posts:
                 if post.summary == '':
                     post.summary = post.content
@@ -42,7 +50,12 @@ class HomePage(TemplateView):
                     post.summary = md.markdown(post.summary, extensions=['markdown.extensions.fenced_code'])
                 
             context_data['places'].append(place)
-        event_dates = EventDate.objects.filter(whenday__gt=date.today())[:10]
+
+        if do_preview:
+            event_dates = EventDate.objects.filter(whenday__gte=date.today())
+        else:
+            event_dates = EventDate.objects.filter(whenday__gte=date.today()).filter(event__draft_status=Event.DRAFT_STATUS_PUBLISHED)
+
         for event_date in event_dates:
             event = event_date.event
             if event.post:

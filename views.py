@@ -57,7 +57,9 @@ class HomePage(TemplateView):
         else:
             event_dates = EventDate.objects.filter(whenday__gte=date.today()).filter(event__draft_status=Event.DRAFT_STATUS_PUBLISHED)
 
+        collated_event_dates={}
         for event_date in event_dates:
+
             event = event_date.event
             if event.post:
                 if event.summary == '':
@@ -73,7 +75,17 @@ class HomePage(TemplateView):
                 event.content = md.markdown(event.content, extensions=['markdown.extensions.fenced_code'])
             if event.summary_format == 'markdown' or ( event.summary_format == 'same' and event.content_format == 'markdown' ):
                 event.summary = md.markdown(event.summary, extensions=['markdown.extensions.fenced_code'])
-        context_data['event_dates'] = event_dates
+
+            isokey = event_date.whenday.isoformat()
+            if isokey in collated_event_dates:
+                collated_event_dates[isokey]['events'].append(event)
+            else:
+                collated_event_dates[isokey]={}
+                collated_event_dates[isokey]['whenday'] = event_date.whenday
+                collated_event_dates[isokey]['events'] = [ event ]
+                
+
+        context_data['event_dates'] = collated_event_dates
 
         context_data['footer'] = settings.TOUGBLOG['FOOTER_CONTENT']
 

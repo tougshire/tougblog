@@ -45,6 +45,10 @@
         width:100%;
     }
 
+    div.list img {
+        max-width:100%;
+    }
+
     div.list .column {
         border: 0;
     }
@@ -224,6 +228,10 @@
 
     div.list .titleimage img {
         width:100%;
+    }
+
+    div.list img {
+        max-width:100%;
     }
 
     div.list .column {

@@ -37,11 +37,11 @@
     }
 
     /* list */
-    div.list .titleimage {
+    div.list .listimage {
         width:100%;
     }
 
-    div.list .titleimage img {
+    div.list .listimage img {
         width:100%;
     }
 
@@ -107,11 +107,11 @@
         min-height: 900px;
     }
 
-    .detail .titleimage {
+    .detail .listimage {
         width:100%;
     }
 
-    .detail .titleimage img {
+    .detail .listimage img {
         width:100%;
     }
 
@@ -222,11 +222,11 @@
     }
 
     /* list */
-    div.list .titleimage {
+    div.list .listimage {
         width:100%;
     }
 
-    div.list .titleimage img {
+    div.list .listimage img {
         width:100%;
     }
 
@@ -292,11 +292,11 @@
         min-height: 900px;
     }
 
-    .detail .titleimage {
+    .detail .listimage {
         width:100%;
     }
 
-    .detail .titleimage img {
+    .detail .listimage img {
         width:100%;
     }
 

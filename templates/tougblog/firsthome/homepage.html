@@ -8,9 +8,9 @@
                     <div id="column_first" class="column">
                         {% for post in p.posts %}
                             <div class="post">
-                                {% if post.title_image %}
-                                    <div class="titleimage">
-                                        <a href="{% url 'tougblog:post' post.slug %}"><img src="{{ post.title_image.file.url }}"></a>
+                                {% if post.list_image %}
+                                    <div class="listimage">
+                                        <a href="{% url 'tougblog:post' post.slug %}"><img src="{{ post.list_image.file.url }}"></a>
                                     </div>
                                 {% endif %}
                                 <div class="title post_title">
@@ -41,9 +41,9 @@
                             </div>
                             {% for post in p.posts %}
                                 <div class="post">
-                                    {% if post.title_image %}
-                                        <div class="titleimage">
-                                            <a href="{% url 'tougblog:post' post.slug %}"><img src="{{ post.title_image.file.url }}"></a>
+                                    {% if post.list_image %}
+                                        <div class="listimage">
+                                            <a href="{% url 'tougblog:post' post.slug %}"><img src="{{ post.list_image.file.url }}"></a>
                                         </div>
                                     {% endif %}
                                     <div class="title post_title">

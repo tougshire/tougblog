@@ -65,12 +65,28 @@ class Post(models.Model):
         max_length=100,
         help_text="The title of the thread"
     )
-    title_image = models.ForeignKey(
+    list_image = models.ForeignKey(
         Image,
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
         help_text='The image to display above the title, and to use for social media graphs'
+    )
+    above_content_image = models.ForeignKey(
+        Image,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        help_text='The image to display above the content, and to use for social media graphs',
+        related_name="post_above_content_image"
+    )
+    below_content_image = models.ForeignKey(
+        Image,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        help_text='The image to display below the content, and to use for social media graphs if no above_content image is set',
+        related_name="post_below_content_image"
     )
     author=models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -176,12 +192,28 @@ class Event(models.Model):
         max_length=100,
         help_text="The title of the thread"
     )
-    title_image = models.ForeignKey(
+    list_image = models.ForeignKey(
         Image,
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
         help_text='The image to display above the title, and to use for social media graphs'
+    )
+    above_content_image = models.ForeignKey(
+        Image,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        help_text='The image to display above the content, and to use for social media graphs',
+        related_name="event_above_content_image"
+    )
+    below_content_image = models.ForeignKey(
+        Image,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        help_text='The image to display below the content, and to use for social media graphs if no above_content image is set',
+        related_name="event_below_content_image"
     )
     starttime = models.TimeField(
         'starting',
@@ -288,12 +320,21 @@ class Page(models.Model):
         max_length=100,
         help_text="The title of the thread"
     )
-    title_image = models.ForeignKey(
+    above_content_image = models.ForeignKey(
         Image,
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        help_text='The image to display above the title, and to use for social media graphs'
+        help_text='The image to display above the content, and to use for social media graphs',
+        related_name="page_above_content_image"
+    )
+    below_content_image = models.ForeignKey(
+        Image,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        help_text='The image to display below the content, and to use for social media graphs if no above_content image is set',
+        related_name="page_below_content_image"
     )
     slug = models.SlugField(
         unique=True,

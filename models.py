@@ -148,6 +148,17 @@ class Post(models.Model):
         default=0,
         help_text="If this post is a draft, which only displays in preview mode"
     )
+    slug = models.SlugField(
+        unique=True,
+        help_text="The code that provides a character based ID for this page"
+    )
+
+    def get_absolute_url(self): 
+        return reverse("post_detail", kwargs={"slug": self.slug}) 
+
+    def save(self, *args, **kwargs):    
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs) 
 
     def __str__(self):
         return self.title
@@ -232,6 +243,18 @@ class Event(models.Model):
         default=0,
         help_text="If this post is a draft, which only displays in preview mode"
     )
+    slug = models.SlugField(
+        unique=True,
+        help_text="The code that provides a character based ID for this page"
+    )
+
+    def get_absolute_url(self): 
+        return reverse("event_detail", kwargs={"slug": self.slug}) 
+    
+    def save(self, *args, **kwargs):    
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs) 
+
 
     def __str__(self):
         return self.title

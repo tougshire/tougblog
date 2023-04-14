@@ -10,8 +10,7 @@ admin.site.register(Placement, PlacementAdmin)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'draft_status', 'placement', 'list_order')
 
-    def get_queryset(self, request):
-        return super().get_queryset(request).model.objects.all()
+    prepopulated_fields={'slug': ["title"]}
 
 admin.site.register(Post, PostAdmin)
 
@@ -19,9 +18,6 @@ class PageAdmin(admin.ModelAdmin):
     list_display = ('title', 'draft_status')
 
     prepopulated_fields={'slug': ["title"]}
-
-    def get_queryset(self, request):
-        return super().get_queryset(request).model.objects.all()
 
 
 admin.site.register(Page, PageAdmin)
@@ -34,8 +30,7 @@ class EventAdmin(admin.ModelAdmin):
     list_display = ('title', 'draft_status')
     inlines = [EventDateInline,]
 
-    def get_queryset(self, request):
-        return super().get_queryset(request).model.objects.all()
+    prepopulated_fields={'slug': ["title"]}
 
 
 admin.site.register(Event, EventAdmin)

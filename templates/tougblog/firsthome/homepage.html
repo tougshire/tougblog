@@ -10,11 +10,11 @@
                             <div class="post">
                                 {% if post.title_image %}
                                     <div class="titleimage">
-                                        <a href="{% url 'tougblog:post' post.pk %}"><img src="{{ post.title_image.file.url }}"></a>
+                                        <a href="{% url 'tougblog:post' post.slug %}"><img src="{{ post.title_image.file.url }}"></a>
                                     </div>
                                 {% endif %}
                                 <div class="title post_title">
-                                    <h2><a href="{% url 'tougblog:post' post.pk %}">{{ post.title }}</a></h2>
+                                    <h2><a href="{% url 'tougblog:post' post.slug %}">{{ post.title }}</a></h2>
                                 </div>
                                 {% if p.show_author or p.show_created %}
                                     <div class="post_meta">
@@ -43,11 +43,11 @@
                                 <div class="post">
                                     {% if post.title_image %}
                                         <div class="titleimage">
-                                            <a href="{% url 'tougblog:post' post.pk %}"><img src="{{ post.title_image.file.url }}"></a>
+                                            <a href="{% url 'tougblog:post' post.slug %}"><img src="{{ post.title_image.file.url }}"></a>
                                         </div>
                                     {% endif %}
                                     <div class="title post_title">
-                                        <h3><a href="{% url 'tougblog:post' post.pk %}">{{ post.title }}</a></h3>
+                                        <h3><a href="{% url 'tougblog:post' post.slug %}">{{ post.title }}</a></h3>
                                     </div>
                                     {% if p.show_author or p.show_created %}
                                         <div class="meta post_meta">
@@ -84,7 +84,7 @@
                             <div class="event_title">
                                 <h4>
                                     {{ event.starttime|default_if_none:'' }} 
-                                    <a href="{% url 'tougblog:event' event.pk %}">
+                                    <a href="{% url 'tougblog:event' event.slug %}">
                                         {{ event.title }}
                                     </a>
                                 </h4>

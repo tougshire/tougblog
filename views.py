@@ -83,7 +83,7 @@ class HomePage(TemplateView):
                 collated_event_dates[isokey]={}
                 collated_event_dates[isokey]['whenday'] = event_date.whenday
                 collated_event_dates[isokey]['events'] = [ event ]
-                
+
 
         context_data['event_dates'] = collated_event_dates
 
@@ -100,15 +100,25 @@ class PostDetail(DetailView):
 
         context_data = super().get_context_data(**kwargs)
         post = self.get_object()
+
+        print('tp234e800')
+        if post.postimage_set.count() > 0:
+            print('tp234d759', post.title)
+
         if post.summary == '':
             post.summary = post.content
         if post.summary == '__none__':
             post.summary = ''
+
         if post.content_format == 'markdown':
             post.content = md.markdown(post.content, extensions=['markdown.extensions.fenced_code'])
+
         if post.summary_format == 'markdown' or ( post.summary_format == 'same' and post.content_format == 'markdown' ):
             post.summary = md.markdown(post.summary, extensions=['markdown.extensions.fenced_code'])
+
         context_data['post'] = post
+
+
 
         context_data['footer'] = settings.TOUGBLOG['FOOTER_CONTENT']
 

@@ -356,4 +356,28 @@ class Page(models.Model):
     class Meta:
         ordering = ('list_order', '-created',)
 
-    
+class PostImage(models.Model):
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        help_text="The post which includes the image"
+    )
+    image = models.ForeignKey(
+        Image,
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,
+        help_text = "The image included in the post.  Optional if URL is set"
+    )
+    url = models.URLField(
+        "URL",
+        blank=True,
+        help_text = "The URL of the image. Leave blank to use the Image field. URL will override the image field if URL is not blank"
+    )
+    slug = models.SlugField(
+        "slug",
+        help_text = "The slug used to refer to the image in this post (refer to the image with {{ img:my-image }}) if my-image is the slug"
+    )
+
+    def __str__(self):
+        return self.slug

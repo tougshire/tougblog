@@ -6,6 +6,17 @@
             {{ post.title }}
         </h2>
     </div>
+    {% if post.above_content_image %}
+        <div class="content_image">
+            {% if post.above_content_image_link %}
+                <a href="{{ post.above_content_image_link }}"{% if post.above_content_link_attributes %} {{ post.above_content_link_attributes }}{% endif %} >
+                    <img class="content_image" src="{{ post.above_content_image.file.url }}"{% if post.above_content_image_attributes %} {{ post.above_content_image_attributes|safe }}{% endif %}>     
+                </a>
+            {% else %}
+                <img class="content_image" src="{{ post.above_content_image.file.url }}"{% if post.above_content_image_attributes %} {{ post.above_content_image_attributes|safe }}{% endif %}>     
+            {% endif %}
+        </div>
+    {% endif %}
     {% if post.show_author or post.show_created %}
         <div class="meta post_meta">
             {% if post.show_author %}

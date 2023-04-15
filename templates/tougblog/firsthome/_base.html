@@ -5,12 +5,11 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Suffolk Democratic Committe, Virginia</title>
+        <link rel="stylesheet" href="{% static 'tougblog/tougblog.css' %}">
         {% if tougblog.COLORSCHEME %}
             {% with tougblog.COLORSCHEME as colorscheme %}
                 <link rel="stylesheet" href="{% static 'tougblog/tougblog_' %}{{ tougblog.COLORSCHEME }}.css">
             {% endwith %}
-        {% else %}
-            <link rel="stylesheet" href="{% static 'tougblog/tougblog.css' %}">
         {% endif %}
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

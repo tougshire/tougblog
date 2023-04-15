@@ -8,166 +8,64 @@
         border-top:2px solid #002507;
     }
 
-    #head {
-        width:80%;
-        margin: 0 auto;
-        text-align:center;
-    }
-
-    #head img {
-        width:100%;
-    }
-
     #menubar {
-        width:100%;
-        text-align: center;
-        border: 2px auto 2px auto;
-        margin: auto auto 1ex auto;
-        padding: .5ex .5ex;
         border-top: solid #002507;
         border-bottom: solid #002507;
 
     }
     
     #menubar a {
-        display:block;
         color:#00390b;
-        text-decoration: none;
 
     }
 
     /* list */
-    div.list .listimage {
-        width:100%;
-    }
-
-    div.list .listimage img {
-        width:100%;
-    }
-
-    div.list img {
-        max-width:100%;
-    }
-
-    div.list .column {
-        border: 0;
-    }
-
     div.list div.post, div.list div.event_date {
         border-bottom: 1px solid #7aff95;
         border-bottom: 1px solid #7aff95;
 
     }
     
-    div.list div.title {
-        width:100%;
-    }
-
     div.list div.title h2 {
-        font-size:1.6em;
-        margin-top:0;
-        border-radius:.1em;
-        font-family: 'Merriweather', serif;
-        text-align: center;
         color:white;
         background-color:#034e3f;
 
     }
     div.list div.title h2 a {
         color:white;
-        text-decoration: none;        
     }
 
     div.list div.title h3 {
-        width:90%;
-        font-size:1.2em;
-        margin:0 auto 0 auto;
-        border-radius:.1em;
-        font-family: 'Merriweather', serif;
-        text-align: center;
         color:#7aff95;
     }
 
     div.list div.title h3 a {
         color:#7aff95;
-        text-decoration: none;        
     }
 
-    div.list div.summary {
-        width:80%;
-        margin:0 auto;
-    }
-
-    div.list div.meta {
-        width:90%;
-        margin:0 auto;
-        text-align:right;
-    }
 
     /* detail */
-    .detail {
-        min-height: 900px;
-    }
-
-    .detail .listimage {
-        width:100%;
-    }
-
-    .detail .listimage img {
-        width:100%;
-    }
-
-    .detail div.title {
-        width:100%;
-    }
 
     .detail .title h2 {
-        font-size:1.6em;
-        margin:0 auto 0 auto;
-        border-radius:.1em;
-        font-family: 'Merriweather', serif;
-        text-align: center;
         color:white;
         background-color:#005812;
 
     }
     .detail .title h2 a {
         color:white;
-        text-decoration: none;        
     }
 
     .detail .title h3 {
-        width:90%;
-        font-size:1.2em;
-        margin:0 auto 0 auto;
-        border-radius:.1em;
-        font-family: 'Merriweather', serif;
-        text-align: center;
         color:#7aff95;
     }
 
     .detail .title h3 a {
         color:#7aff95;
-        text-decoration: none;        
-    }
-
-    .detail .content {
-        width:90%;
-        margin:0 auto;
-        font-family: open sans,sans-serif;
-        
-    }
-
-    .detail .meta {
-        width:95%;
-        margin:0 auto;
-        text-align:right;
     }
 
     #footer {
         background-color:#001b05;
         color:white;
-        text-align:center;
     }
 }
 
@@ -178,181 +76,66 @@
         border-top:2px solid #002507;
     }
 
-    #head {
-        width:80%;
-        margin: 0 auto;
-        text-align:center;
-    }
-
-    #head img {
-        width:65%;
-    }
 
     #menubar {
-        width:100%;
-        display:flex;
-        justify-content: space-evenly;
-        text-align: center;
-        border: 2px auto 2px auto;
-        margin: auto auto 1ex auto;
-        padding: .5ex .5ex;
         border-top: solid #002507;
         border-bottom: solid #002507;
 
     }
     
     #menubar a {
-        display:block;
         color:#00390b;
-        text-decoration: none;
-
-    }
-
-    div.list #columns {
-        display:flex;
-    }
-
-    div.list #columns #column_first.column {
-        flex: 3;
-        border-left: none;
     }
 
     div.list #columns .column  {
-        flex: 1;
         border-left: 1px solid #002507;
-        padding: .5em 1em 1em 1em;
     }
 
     /* list */
-    div.list .listimage {
-        width:100%;
-    }
-
-    div.list .listimage img {
-        width:100%;
-    }
-
-    div.list img {
-        max-width:100%;
-    }
-
-    div.list .column {
-        border: 0;
-    }
 
     div.list div.post, div.list div.event_date {
         border-bottom: 1px solid #7aff95;
     }
 
-    div.list div.title {
-        width:100%;
-    }
-
     div.list div.title h2 {
-        font-size:1.6em;
-        margin-top:0;
-        border-radius:.1em;
-        font-family: 'Merriweather', serif;
-        text-align: center;
         color:white;
         background-color:#034e3f;
 
     }
     div.list div.title h2 a {
         color:white;
-        text-decoration: none;        
     }
 
     div.list div.title h3 {
-        width:90%;
-        font-size:1.2em;
-        margin:0 auto 0 auto;
-        border-radius:.1em;
-        font-family: 'Merriweather', serif;
-        text-align: center;
         color:#7aff95;
     }
 
     div.list div.title h3 a {
         color:#7aff95;
-        text-decoration: none;        
-    }
-
-    div.list div.summary {
-        width:80%;
-        margin:0 auto;
-    }
-
-    div.list div.meta {
-        width:90%;
-        margin:0 auto;
-        text-align:right;
     }
 
     /* detail */
-    .detail {
-        min-height: 900px;
-    }
-
-    .detail .listimage {
-        width:100%;
-    }
-
-    .detail .listimage img {
-        width:100%;
-    }
-
-    .detail div.title {
-        width:100%;
-    }
 
     .detail .title h2 {
-        font-size:1.6em;
-        margin:0 auto 0 auto;
-        border-radius:.1em;
-        font-family: 'Merriweather', serif;
-        text-align: center;
         color:white;
         background-color:#034e3f;
 
     }
     .detail .title h2 a {
         color:white;
-        text-decoration: none;        
     }
 
     .detail .title h3 {
-        width:90%;
-        font-size:1.2em;
-        margin:0 auto 0 auto;
-        border-radius:.1em;
-        font-family: 'Merriweather', serif;
-        text-align: center;
         color:#7aff95;
     }
 
     .detail .title h3 a {
         color:#7aff95;
-        text-decoration: none;        
     }
 
-    .detail .content {
-        width:90%;
-        margin:0 auto;
-        font-family: open sans,sans-serif;        
-        
-    }
-
-
-    .detail .meta {
-        width:95%;
-        margin:0 auto;
-        text-align:right;
-    }
 
     #footer {
         background-color:#034e3f;
         color:white;
-        text-align:center;
     }
 }

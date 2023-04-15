@@ -31,7 +31,6 @@
     
     #menubar a {
         display:block;
-        color:#022e5b;
         text-decoration: none;
 
     }
@@ -67,12 +66,9 @@
         border-radius:.1em;
         font-family: 'Merriweather', serif;
         text-align: center;
-        color:white;
-        background-color:#002e5c;
 
     }
     div.list div.title h2 a {
-        color:white;
         text-decoration: none;        
     }
 
@@ -83,11 +79,9 @@
         border-radius:.1em;
         font-family: 'Merriweather', serif;
         text-align: center;
-        color:#00a7e0;
     }
 
     div.list div.title h3 a {
-        color:#00a7e0;
         text-decoration: none;        
     }
 
@@ -125,12 +119,9 @@
         border-radius:.1em;
         font-family: 'Merriweather', serif;
         text-align: center;
-        color:white;
-        background-color:#002e5c;
 
     }
     .detail .title h2 a {
-        color:white;
         text-decoration: none;        
     }
 
@@ -141,11 +132,9 @@
         border-radius:.1em;
         font-family: 'Merriweather', serif;
         text-align: center;
-        color:#00a7e0;
     }
 
     .detail .title h3 a {
-        color:#00a7e0;
         text-decoration: none;        
     }
 
@@ -163,8 +152,6 @@
     }
 
     #footer {
-        background-color:#002e5c;
-        color:white;
         text-align:center;
     }
 }
@@ -201,7 +188,6 @@
     
     #menubar a {
         display:block;
-        color:#022e5b;
         text-decoration: none;
 
     }
@@ -252,12 +238,9 @@
         border-radius:.1em;
         font-family: 'Merriweather', serif;
         text-align: center;
-        color:white;
-        background-color:#002e5c;
 
     }
     div.list div.title h2 a {
-        color:white;
         text-decoration: none;        
     }
 
@@ -268,11 +251,9 @@
         border-radius:.1em;
         font-family: 'Merriweather', serif;
         text-align: center;
-        color:#00a7e0;
     }
 
     div.list div.title h3 a {
-        color:#00a7e0;
         text-decoration: none;        
     }
 
@@ -292,12 +273,14 @@
         min-height: 900px;
     }
 
-    .detail .listimage {
+    .detail .content_image {
         width:100%;
+        text-align: center;
     }
 
-    .detail .listimage img {
-        width:100%;
+    .detail .content_image img {
+        width:80%;
+        margin:0 auto;
     }
 
     .detail div.title {
@@ -310,12 +293,8 @@
         border-radius:.1em;
         font-family: 'Merriweather', serif;
         text-align: center;
-        color:white;
-        background-color:#002e5c;
-
     }
     .detail .title h2 a {
-        color:white;
         text-decoration: none;        
     }
 
@@ -326,11 +305,9 @@
         border-radius:.1em;
         font-family: 'Merriweather', serif;
         text-align: center;
-        color:#00a7e0;
     }
 
     .detail .title h3 a {
-        color:#00a7e0;
         text-decoration: none;        
     }
 
@@ -349,8 +326,6 @@
     }
 
     #footer {
-        background-color:#002e5c;
-        color:white;
         text-align:center;
     }
 }

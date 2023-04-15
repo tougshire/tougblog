@@ -80,6 +80,23 @@ class Post(models.Model):
         help_text='The image to display above the content, and to use for social media graphs',
         related_name="post_above_content_image"
     )
+    above_content_image_attributes = models.CharField(
+        "above content image attributes",
+        max_length=70,
+        blank=True,
+        help_text='The attributes (ie style="width:60%") for the image for the image displayed above content',
+    )
+    above_content_image_link = models.URLField(
+        "above content image link",
+        blank=True,
+        help_text='The link for the image displayed above content',
+    )
+    above_content_link_attributes = models.CharField(
+        "above content link attributes",
+        max_length=70,
+        blank=True,
+        help_text='The attributes (ie target="_blank") for the link for the image displayed above content',
+    )
     below_content_image = models.ForeignKey(
         Image,
         on_delete=models.SET_NULL,
@@ -87,6 +104,24 @@ class Post(models.Model):
         blank=True,
         help_text='The image to display below the content, and to use for social media graphs if no above_content image is set',
         related_name="post_below_content_image"
+    )
+    below_content_image_attributes = models.CharField(
+        "below content image attributes",
+        max_length=70,
+        blank=True,
+        help_text='The attributes (ie style="width:60%") for the image for the image displayed below content',
+    )
+
+    below_content_image_link = models.URLField(
+        "below content image link",
+        blank=True,
+        help_text='The link for the image displayed below content',
+    )
+    below_content_link_attributes = models.CharField(
+        "below content link attributes",
+        max_length=70,
+        blank=True,
+        help_text='The attributes (ie target="_blank") for the link for the image displayed below content',
     )
     author=models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -207,6 +242,23 @@ class Event(models.Model):
         help_text='The image to display above the content, and to use for social media graphs',
         related_name="event_above_content_image"
     )
+    above_content_image_link = models.URLField(
+        "above content image link",
+        blank=True,
+        help_text='The link for the image displayed above content',
+    )
+    above_content_image_attributes = models.CharField(
+        "above content image attributes",
+        max_length=70,
+        blank=True,
+        help_text='The attributes (ie style="width:60%") for the image for the image displayed above content',
+    )
+    above_content_link_attributes = models.CharField(
+        "above content link attributes",
+        max_length=70,
+        blank=True,
+        help_text='The attributes (ie target="_blank") for the link for the image displayed above content',
+    )
     below_content_image = models.ForeignKey(
         Image,
         on_delete=models.SET_NULL,
@@ -214,6 +266,24 @@ class Event(models.Model):
         blank=True,
         help_text='The image to display below the content, and to use for social media graphs if no above_content image is set',
         related_name="event_below_content_image"
+    )
+    below_content_image_attributes = models.CharField(
+        "below content image attributes",
+        max_length=70,
+        blank=True,
+        help_text='The attributes (ie style="width:60%") for the image for the image displayed below content',
+    )
+
+    below_content_image_link = models.URLField(
+        "below content image link",
+        blank=True,
+        help_text='The link for the image displayed below content',
+    )
+    below_content_link_attributes = models.CharField(
+        "below content link attributes",
+        max_length=70,
+        blank=True,
+        help_text='The attributes (ie target="_blank") for the link for the image displayed below content',
     )
     starttime = models.TimeField(
         'starting',
@@ -328,6 +398,17 @@ class Page(models.Model):
         help_text='The image to display above the content, and to use for social media graphs',
         related_name="page_above_content_image"
     )
+    above_content_image_link = models.URLField(
+        "above content image link",
+        blank=True,
+        help_text='The link for the image displayed above content',
+    )
+    above_content_link_attributes = models.CharField(
+        "above content attributes",
+        max_length=70,
+        blank=True,
+        help_text='The attributes (ie target="_blank") for the link for the image displayed above content',
+    )
     below_content_image = models.ForeignKey(
         Image,
         on_delete=models.SET_NULL,
@@ -336,6 +417,18 @@ class Page(models.Model):
         help_text='The image to display below the content, and to use for social media graphs if no above_content image is set',
         related_name="page_below_content_image"
     )
+    below_content_image_link = models.URLField(
+        "below content image link",
+        blank=True,
+        help_text='The link for the image displayed below content',
+    )
+    below_content_link_attributes = models.CharField(
+        "below content attributes",
+        max_length=70,
+        blank=True,
+        help_text='The attributes (ie target="_blank") for the link for the image displayed below content',
+    )
+
     slug = models.SlugField(
         unique=True,
         help_text="The code that provides a character based ID for this page"

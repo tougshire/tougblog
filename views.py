@@ -93,7 +93,7 @@ class HomePage(TemplateView):
     
 class PostDetail(DetailView):
     model=Post
-    template_name = 'tougblog/{}/post.html'.format(settings.TOUGBLOG['TEMPLATE_DIR'])
+    template_name = '{}/post.html'.format(settings.TOUGBLOG['TEMPLATE_DIR'])
     context_object_name = 'post'
 
     def get_context_data(self, **kwargs):
@@ -126,7 +126,7 @@ class PostDetail(DetailView):
 
 class EventDetail(DetailView):
     model=Event
-    template_name = 'tougblog/{}/event.html'.format(settings.TOUGBLOG['TEMPLATE_DIR'])
+    template_name = '{}/event.html'.format(settings.TOUGBLOG['TEMPLATE_DIR'])
     context_object_name = 'event'
 
     def get_context_data(self, **kwargs):
@@ -155,7 +155,7 @@ class EventDetail(DetailView):
 
 class PageDetail(DetailView):
     model=Page
-    template_name = 'tougblog/{}/page.html'.format(settings.TOUGBLOG['TEMPLATE_DIR'])
+    template_name = '{}/page.html'.format(settings.TOUGBLOG['TEMPLATE_DIR'])
     context_object_name = 'page'
 
     def get_context_data(self, **kwargs):

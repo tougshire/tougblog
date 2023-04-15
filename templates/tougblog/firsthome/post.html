@@ -31,7 +31,17 @@
     <div class="content post_content">
         {{ post.content | safe }} 
     </div>
-
+    {% if post.below_content_image %}
+        <div class="content_image">
+            {% if post.below_content_image_link %}
+                <a href="{{ post.below_content_image_link }}"{% if post.below_content_link_attributes %} {{ post.below_content_link_attributes }}{% endif %} >
+                    <img class="content_image" src="{{ post.below_content_image.file.url }}"{% if post.below_content_image_attributes %} {{ post.below_content_image_attributes|safe }}{% endif %}>     
+                </a>
+            {% else %}
+                <img class="content_image" src="{{ post.below_content_image.file.url }}"{% if post.below_content_image_attributes %} {{ post.below_content_image_attributes|safe }}{% endif %}>     
+            {% endif %}
+        </div>
+    {% endif %}
 </div>
 
 {% endblock %}

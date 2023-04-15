@@ -132,7 +132,30 @@ class EventDetail(DetailView):
     def get_context_data(self, **kwargs):
 
         context_data = super().get_context_data(**kwargs)
+
         event = self.get_object()
+
+        event_dates = {
+            'past':[],
+            'future':[],
+            'only':False,
+        }   
+        for event_date in event.eventdate_set.all():
+            if event_date.whenday < date.today():
+                event_dates['past'].append(event_date.whenday)
+            else:
+                event_dates['future'].append(event_date.whenday)
+
+        if event_dates['future']:
+            event_dates['now_or_next'] = event_dates['future'].pop(0)
+        if event_dates['future']:
+            event_dates['next'] = event_dates['future'].pop(0)
+        if event_dates['past']:
+            event_dates['previous'] = event_dates['past'].pop()
+
+
+        context_data['event_dates'] = event_dates
+        
         if event.post:
             if event.summary == '':
                 event.summary = event.post.summary

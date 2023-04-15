@@ -311,6 +311,23 @@
         text-decoration: none;        
     }
 
+    .detail .event_dates {
+        display:flex;
+        justify-content: space-around;
+        text-align: center;
+    }
+    .detail .event_dates_stacked {
+        display:block;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    .detail .meta {
+        width:95%;
+        margin:0 auto;
+        text-align:right;
+    }
+
     .detail .content {
         width:90%;
         margin:0 auto;
@@ -318,12 +335,6 @@
         
     }
 
-
-    .detail .meta {
-        width:95%;
-        margin:0 auto;
-        text-align:right;
-    }
 
     #footer {
         text-align:center;

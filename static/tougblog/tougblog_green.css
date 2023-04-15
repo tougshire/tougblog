@@ -5,7 +5,7 @@
     /* Global */
 
     body {
-        border-top:2px solid black;
+        border-top:2px solid #002507;
     }
 
     #head {
@@ -24,72 +24,81 @@
         border: 2px auto 2px auto;
         margin: auto auto 1ex auto;
         padding: .5ex .5ex;
-        border-top: solid black;
-        border-bottom: solid black;
+        border-top: solid #002507;
+        border-bottom: solid #002507;
 
     }
     
     #menubar a {
         display:block;
-        color:#022e5b;
+        color:#00390b;
         text-decoration: none;
 
     }
 
     /* list */
-    .list .titleimage {
+    div.list .listimage {
         width:100%;
     }
 
-    .list .titleimage img {
+    div.list .listimage img {
         width:100%;
     }
 
-    .list .column {
+    div.list img {
+        max-width:100%;
+    }
+
+    div.list .column {
         border: 0;
     }
 
-    .list div.title {
+    div.list div.post, div.list div.event_date {
+        border-bottom: 1px solid #7aff95;
+        border-bottom: 1px solid #7aff95;
+
+    }
+    
+    div.list div.title {
         width:100%;
     }
 
-    .list .title h2 {
+    div.list div.title h2 {
         font-size:1.6em;
         margin-top:0;
         border-radius:.1em;
         font-family: 'Merriweather', serif;
         text-align: center;
         color:white;
-        background-color:#002e5c;
+        background-color:#034e3f;
 
     }
-    .list .title h2 a {
+    div.list div.title h2 a {
         color:white;
         text-decoration: none;        
     }
 
-    .list .title h3 {
+    div.list div.title h3 {
         width:90%;
         font-size:1.2em;
         margin:0 auto 0 auto;
         border-radius:.1em;
         font-family: 'Merriweather', serif;
         text-align: center;
-        color:white;
-        background-color:#004284;
+        color:#7aff95;
     }
 
-    .list .title h3 a {
-        color:white;
+    div.list div.title h3 a {
+        color:#7aff95;
         text-decoration: none;        
     }
 
-    .list .summary {
+    div.list div.summary {
         width:80%;
         margin:0 auto;
     }
 
-    .list .meta {
+    div.list div.meta {
         width:90%;
         margin:0 auto;
         text-align:right;
@@ -100,11 +109,11 @@
         min-height: 900px;
     }
 
-    .detail .titleimage {
+    .detail .listimage {
         width:100%;
     }
 
-    .detail .titleimage img {
+    .detail .listimage img {
         width:100%;
     }
 
@@ -119,7 +128,7 @@
         font-family: 'Merriweather', serif;
         text-align: center;
         color:white;
-        background-color:#002e5c;
+        background-color:#005812;
 
     }
     .detail .title h2 a {
@@ -134,12 +143,11 @@
         border-radius:.1em;
         font-family: 'Merriweather', serif;
         text-align: center;
-        color:white;
-        background-color:#004284;
+        color:#7aff95;
     }
 
     .detail .title h3 a {
-        color:white;
+        color:#7aff95;
         text-decoration: none;        
     }
 
@@ -157,7 +165,7 @@
     }
 
     #footer {
-        background-color:#002e5c;
+        background-color:#001b05;
         color:white;
         text-align:center;
     }
@@ -167,7 +175,7 @@
     /* Global */
 
     body {
-        border-top:2px solid black;
+        border-top:2px solid #002507;
     }
 
     #head {
@@ -188,87 +196,94 @@
         border: 2px auto 2px auto;
         margin: auto auto 1ex auto;
         padding: .5ex .5ex;
-        border-top: solid black;
-        border-bottom: solid black;
+        border-top: solid #002507;
+        border-bottom: solid #002507;
 
     }
     
     #menubar a {
         display:block;
-        color:#022e5b;
+        color:#00390b;
         text-decoration: none;
 
     }
 
-    .list #columns {
+    div.list #columns {
         display:flex;
     }
 
-    .list #columns #column_first.column {
+    div.list #columns #column_first.column {
         flex: 3;
         border-left: none;
     }
 
-    .list #columns .column  {
+    div.list #columns .column  {
         flex: 1;
-        border-left: 1px solid black;
+        border-left: 1px solid #002507;
         padding: .5em 1em 1em 1em;
     }
 
     /* list */
-    .list .titleimage {
+    div.list .listimage {
         width:100%;
     }
 
-    .list .titleimage img {
+    div.list .listimage img {
         width:100%;
     }
 
-    .list .column {
+    div.list img {
+        max-width:100%;
+    }
+
+    div.list .column {
         border: 0;
     }
 
-    .list div.title {
+    div.list div.post, div.list div.event_date {
+        border-bottom: 1px solid #7aff95;
+    }
+
+    div.list div.title {
         width:100%;
     }
 
-    .list .title h2 {
+    div.list div.title h2 {
         font-size:1.6em;
         margin-top:0;
         border-radius:.1em;
         font-family: 'Merriweather', serif;
         text-align: center;
         color:white;
-        background-color:#002e5c;
+        background-color:#034e3f;
 
     }
-    .list .title h2 a {
+    div.list div.title h2 a {
         color:white;
         text-decoration: none;        
     }
 
-    .list .title h3 {
+    div.list div.title h3 {
         width:90%;
         font-size:1.2em;
         margin:0 auto 0 auto;
         border-radius:.1em;
         font-family: 'Merriweather', serif;
         text-align: center;
-        color:white;
-        background-color:#004284;
+        color:#7aff95;
     }
 
-    .list .title h3 a {
-        color:white;
+    div.list div.title h3 a {
+        color:#7aff95;
         text-decoration: none;        
     }
 
-    .list .summary {
+    div.list div.summary {
         width:80%;
         margin:0 auto;
     }
 
-    .list .meta {
+    div.list div.meta {
         width:90%;
         margin:0 auto;
         text-align:right;
@@ -279,11 +294,11 @@
         min-height: 900px;
     }
 
-    .detail .titleimage {
+    .detail .listimage {
         width:100%;
     }
 
-    .detail .titleimage img {
+    .detail .listimage img {
         width:100%;
     }
 
@@ -298,7 +313,7 @@
         font-family: 'Merriweather', serif;
         text-align: center;
         color:white;
-        background-color:#002e5c;
+        background-color:#034e3f;
 
     }
     .detail .title h2 a {
@@ -313,12 +328,11 @@
         border-radius:.1em;
         font-family: 'Merriweather', serif;
         text-align: center;
-        color:white;
-        background-color:#004284;
+        color:#7aff95;
     }
 
     .detail .title h3 a {
-        color:white;
+        color:#7aff95;
         text-decoration: none;        
     }
 
@@ -337,7 +351,7 @@
     }
 
     #footer {
-        background-color:#002e5c;
+        background-color:#034e3f;
         color:white;
         text-align:center;
     }

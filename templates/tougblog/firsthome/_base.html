@@ -5,14 +5,20 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Suffolk Democratic Committe, Virginia</title>
-        <link rel="stylesheet" href="{% static 'tougblog/tougblog.css' %}">
+        {% if tougblog.COLORSCHEME %}
+            {% with tougblog.COLORSCHEME as colorscheme %}
+                <link rel="stylesheet" href="{% static 'tougblog/tougblog_' %}{{ tougblog.COLORSCHEME }}.css">
+            {% endwith %}
+        {% else %}
+            <link rel="stylesheet" href="{% static 'tougblog/tougblog.css' %}">
+        {% endif %}
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           
     </head>
     <body>
         <div id="head">
-            <a href="{% url 'tougblog:homepage' %}"><img src="{% static 'tougblog/tougblog.png' %}"></a>
+            <a href="{% url 'tougblog:homepage' %}"><img src="{{ tougblog.BANNER_IMAGE }}"></a>
         </div>
         <div id="menubar">
             <a href="{% url 'tougblog:homepage'  %}">Home</a> 
@@ -25,7 +31,7 @@
             {% endblock %}
         </div>
         <div id="footer">
-            {{ footer }}
+            {{ tougblog.FOOTER_CONTENT }}
         </div>
     </body>
 </html>

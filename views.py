@@ -15,7 +15,7 @@ from tougblog.models import Event, EventDate, Page, Placement, Post
 
 class HomePage(TemplateView):
 
-    template_name = 'tougblog/{}/homepage.html'.format(settings.TOUGBLOG['TEMPLATE_DIR'])
+    template_name = '{}/homepage.html'.format(settings.TOUGBLOG['TEMPLATE_DIR'])
 
     def get_context_data(self, **kwargs):
 

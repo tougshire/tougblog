@@ -8,7 +8,7 @@ class Image(models.Model):
     title = models.CharField(
         'Title',
         max_length=100,
-        help_text="The title of the thread"
+        help_text="The title of the image"
     )
     author=models.ForeignKey(
         settings.AUTH_USER_MODEL,

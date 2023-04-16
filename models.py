@@ -12,7 +12,9 @@ class Image(models.Model):
     )
     author=models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
         help_text="The user who created ths thread"
     )
     created=models.DateTimeField(

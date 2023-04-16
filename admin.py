@@ -8,7 +8,7 @@ class PlacementAdmin(admin.ModelAdmin):
 admin.site.register(Placement, PlacementAdmin)
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'draft_status', 'placement', 'list_order')
+    list_display = ('title', 'draft_status', 'placement', )
 
     prepopulated_fields={'slug': ["title"]}
 

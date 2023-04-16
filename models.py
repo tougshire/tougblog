@@ -115,7 +115,6 @@ class Post(models.Model):
         blank=True,
         help_text='The attributes (ie style="width:60%") for the image for the image displayed below content',
     )
-
     below_content_image_link = models.URLField(
         "below content image link",
         blank=True,
@@ -143,7 +142,12 @@ class Post(models.Model):
         'sortable date',
         default=datetime.now,
         null=True,
-        help_text="The date/time this therad was created"
+        help_text="The modifiable date used for sorting. This is the created date by default. To move a post up, select a future date."
+    )
+    sticky=models.BooleanField(
+        'sticky',
+        default=False,
+        help_text='If this post is stuck to the top. This is used before sortable date'
     )
     show_author = models.BooleanField(
         'show author',
@@ -193,12 +197,6 @@ class Post(models.Model):
         blank=True,
         help_text="A shorter version of the content"
     )
-    list_order = models.CharField(
-        max_length=1,
-        blank=True,
-        default='~',
-        help_text="A character to determine the place on the list. Numbers are higher than capital letters, which are higher than small letters"
-    )
     draft_status = models.IntegerField(
         "draft status",
         choices = [
@@ -225,7 +223,7 @@ class Post(models.Model):
         return self.title
     
     class Meta:
-        ordering = ('list_order', '-created',)
+        ordering = ('-sticky', '-sortable_date',)
     
 class Event(models.Model):
     DRAFT_STATUS_PUBLISHED = 7

@@ -15,7 +15,7 @@ class Image(models.Model):
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
-        help_text="The user who created ths thread"
+        help_text="The user who uploaded this image"
     )
     created=models.DateTimeField(
         'created',

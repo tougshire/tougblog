@@ -12,6 +12,13 @@ class PostAdmin(admin.ModelAdmin):
     ordering = ['placement'] + list(Post._meta.ordering)
     prepopulated_fields={'slug': ["title"]}
 
+    def get_changeform_initial_data(self, request):
+
+        initial = super().get_changeform_initial_data(request)
+        initial['author'] = request.user
+        return initial
+
+
 admin.site.register(Post, PostAdmin)
 
 class PageAdmin(admin.ModelAdmin):

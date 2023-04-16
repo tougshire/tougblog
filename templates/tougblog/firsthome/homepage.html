@@ -18,11 +18,11 @@
                                 </div>
                                 {% if p.show_author or p.show_created %}
                                     <div class="post_meta">
-                                        {% if p.show_author %}
+                                        {% if post.show_author %}
                                             {{ post.author|default_if_none:'&nbsp;' }}
                                         {% endif %}
                                         {% if p.show_author and p.show_created %} - {% endif %}
-                                        {% if p.show_created %} 
+                                        {% if post.show_created %}  
                                             {{ post.created|default_if_none:'&nbsp;' }} 
                                         {% endif %}
                                     </div>

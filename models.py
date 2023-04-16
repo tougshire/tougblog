@@ -20,7 +20,7 @@ class Image(models.Model):
     created=models.DateTimeField(
         'created',
         auto_now_add=True,
-        help_text="The date/time this therad was created"
+        help_text="The date/time this image was created"
     )
     file = models.ImageField(
         upload_to='gallery/'

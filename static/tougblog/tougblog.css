@@ -28,7 +28,7 @@
         border-bottom: solid black;
 
     }
-    
+
     #menubar a {
         display:block;
         text-decoration: none;
@@ -55,7 +55,7 @@
     div.list div.post, div.list div.event_dat   e {
         border-bottom: 1px solid #00a7e0;
     }
-    
+
     div.list div.title {
         width:100%;
     }
@@ -68,6 +68,7 @@
         text-align: center;
 
     }
+
     div.list div.title h2 a {
         text-decoration: none;        
     }
@@ -125,7 +126,7 @@
         text-decoration: none;        
     }
 
-    .detail .title h3 {
+detail .title h3 {
         width:90%;
         font-size:1.2em;
         margin:0 auto 0 auto;
@@ -316,6 +317,7 @@
         justify-content: space-around;
         text-align: center;
     }
+
     .detail .event_dates_stacked {
         display:block;
         justify-content: space-around;
@@ -334,7 +336,6 @@
         font-family: open sans,sans-serif;        
         
     }
-
 
     #footer {
         text-align:center;

@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import date
+from datetime import datetime, date
 from django.conf import settings
 from django.template.defaultfilters import slugify
 from django.urls import reverse
@@ -25,6 +25,7 @@ class Image(models.Model):
     file = models.ImageField(
         upload_to='gallery/'
     )
+
     def __str__(self):
         return self.title
     
@@ -32,6 +33,7 @@ class Image(models.Model):
         ordering = ('-created',)
 
 class Placement(models.Model):
+
     title=models.CharField(
         'title',
         max_length=100,
@@ -135,6 +137,12 @@ class Post(models.Model):
     created=models.DateTimeField(
         'created',
         auto_now_add=True,
+        help_text="The date/time this therad was created"
+    )
+    sortable_date=models.DateTimeField(
+        'sortable date',
+        default=datetime.now,
+        null=True,
         help_text="The date/time this therad was created"
     )
     show_author = models.BooleanField(

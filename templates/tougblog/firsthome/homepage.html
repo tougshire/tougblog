@@ -10,7 +10,7 @@
                             <div class="post">
                                 {% if post.list_image %}
                                     <div class="listimage">
-                                        <a href="{% url 'tougblog:post' post.slug %}"><img src="{{ post.list_image.file.url }}"></a>
+                                        <a href="{% url 'tougblog:post' post.slug %}"><img src="{{ post.list_image.url }}"></a>
                                     </div>
                                 {% endif %}
                                 <div class="title post_title">
@@ -43,7 +43,7 @@
                                 <div class="post">
                                     {% if post.list_image %}
                                         <div class="listimage">
-                                            <a href="{% url 'tougblog:post' post.slug %}"><img src="{{ post.list_image.file.url }}"></a>
+                                            <a href="{% url 'tougblog:post' post.slug %}"><img src="{{ post.list_image.url }}"></a>
                                         </div>
                                     {% endif %}
                                     <div class="title post_title">

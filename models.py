@@ -23,14 +23,39 @@ class Image(models.Model):
         help_text="The date/time this image was created"
     )
     file = models.ImageField(
-        upload_to='gallery/'
+        null=True,
+        blank=True,
+        upload_to='gallery/',
+        help_text='The file to be uploaded - can be blank if URL is entered and no file needs to be uploaded - Is removed once saved'
+    )
+    url = models.URLField(
+        'URL',
+        blank=True,
+        help_text='The URL.  This will be overwritten if a file is uploaded'
     )
 
     def __str__(self):
         return self.title
     
+    def save(self, *args, **kwargs):
+        update_url = False
+
+        if self.file:
+            update_url = True
+
+        super().save(*args, **kwargs)
+
+        if update_url:
+            self.url = self.file.url
+            self.file = None
+
+        super().save(*args, **kwargs)
+
+        
+
     class Meta:
         ordering = ('-created',)
+
 
 class Placement(models.Model):
 

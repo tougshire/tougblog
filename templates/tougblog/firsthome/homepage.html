@@ -69,31 +69,33 @@
                     {% endif %}
                 {% endif %}
             {% endfor %}
-            <div id="columns_{ forloop.counter0}" class="column">
-                <div class="title columns_title">
-                    <h2>Events</h2>
-                </div>
-                {% for event_date, values in event_dates.items %}
-                    <div class = "event_date">
-                        <div class="title event_date_date">
-                            <h3>
-                                {{ values.whenday|date:'D d M Y' }}
-                            </h3>
-                        </div>
-                        {% for event in values.events %}  
-                            <div class="event_title">
-                                <h4>
-                                    {{ event.starttime|default_if_none:'' }} 
-                                    <a href="{% url 'tougblog:event' event.slug %}">
-                                        {{ event.title }}
-                                    </a>
-                                </h4>
-                            </div>
-                            <div class="event_summary">{{ event.summary | safe }}</div>
-                        {% endfor %}
+            {% if tougblog.SHOW_EVENTS %}
+                <div id="columns_{ forloop.counter0}" class="column">
+                    <div class="title columns_title">
+                        <h2>Events</h2>
                     </div>
-                {% endfor %}            
-            </div>
+                    {% for event_date, values in event_dates.items %}
+                        <div class = "event_date">
+                            <div class="title event_date_date">
+                                <h3>
+                                    {{ values.whenday|date:'D d M Y' }}
+                                </h3>
+                            </div>
+                            {% for event in values.events %}  
+                                <div class="event_title">
+                                    <h4>
+                                        {{ event.starttime|default_if_none:'' }} 
+                                        <a href="{% url 'tougblog:event' event.slug %}">
+                                            {{ event.title }}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div class="event_summary">{{ event.summary | safe }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}            
+                </div>
+            {% endif %}
         </div>
     </div>
 

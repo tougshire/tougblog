@@ -240,8 +240,9 @@ class Post(models.Model):
     def get_absolute_url(self): 
         return reverse("post_detail", kwargs={"slug": self.slug}) 
 
-    def save(self, *args, **kwargs):    
-        self.slug = slugify(self.title)
+    def save(self, *args, **kwargs):   
+        if not self.slug > "":
+            self.slug = slugify(self.title)
         super().save(*args, **kwargs) 
 
     def __str__(self):
@@ -386,10 +387,10 @@ class Event(models.Model):
     def get_absolute_url(self): 
         return reverse("event_detail", kwargs={"slug": self.slug}) 
     
-    def save(self, *args, **kwargs):    
-        self.slug = slugify(self.title)
+    def save(self, *args, **kwargs):   
+        if not self.slug > "":
+            self.slug = slugify(self.title)
         super().save(*args, **kwargs) 
-
 
     def __str__(self):
         return self.title
@@ -516,8 +517,9 @@ class Page(models.Model):
     def get_absolute_url(self): 
         return reverse("page_detail", kwargs={"slug": self.slug}) 
     
-    def save(self, *args, **kwargs):    
-        self.slug = slugify(self.title)
+    def save(self, *args, **kwargs):   
+        if not self.slug > "":
+            self.slug = slugify(self.title)
         super().save(*args, **kwargs) 
 
     class Meta:
